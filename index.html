@@ -409,6 +409,58 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media (max-width: 768px) {
+
+  .nav-links a {
+    padding: 10px;
+    display: block;
+  }
+
+  .nav-links a:active {
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 5px;
+  }
+
+  .nav-links a:focus {
+    outline: none;
+    background: rgba(0, 255, 255, 0.2);
+  }
+}
+@media (hover: none) {
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+}
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    color: white;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #0d2c54;
+    width: 200px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 </style>
 </head>
 
@@ -427,7 +479,7 @@ body {
       <img src="logo.jpeg">
       <span>SSI ENGINEERING</span>
     </div>
-
+<div class="menu-toggle">☰</div>
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="#">About Us</a></li>
@@ -618,5 +670,11 @@ function slideTestimonials() {
 
 // Auto slide every 2 seconds
 setInterval(slideTestimonials, 2000);
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav-links');
+
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
 </script>
 </html>
