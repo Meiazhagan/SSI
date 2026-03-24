@@ -150,8 +150,23 @@ body {
 /* MOBILE */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
-  }
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background: #0d2c54;
+  width: 220px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+  display: flex;                 /* always flex */
+  transform: translateX(100%);   /* hidden */
+  transition: 0.3s ease;
+}
+
+.nav-links.active {
+  transform: translateX(0);      /* visible */
+}
 
   .hero-content h1 {
     font-size: 30px;
