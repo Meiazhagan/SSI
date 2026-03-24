@@ -28,15 +28,17 @@ body {
   color: white;
 }
 
-/* VIDEO */
+/* VIDEO BACKGROUND */
 .bg-video {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* OVERLAY */
+/* DARK OVERLAY */
 .main-header::after {
   content: "";
   position: absolute;
@@ -45,8 +47,6 @@ body {
   background: rgba(0,0,0,0.6);
   top: 0;
   left: 0;
-  z-index: 1;
-  pointer-events: none;
 }
 
 /* NAVBAR */
@@ -76,7 +76,7 @@ body {
   font-weight: bold;
 }
 
-/* NAV LINKS (DESKTOP) */
+/* NAV LINKS */
 .nav-links {
   display: flex;
   list-style: none;
@@ -88,10 +88,8 @@ body {
   color: white;
   font-size: 18px;
   position: relative;
-  padding: 5px;
 }
 
-/* UNDERLINE EFFECT */
 .nav-links a::after {
   content: "";
   width: 0%;
@@ -107,20 +105,344 @@ body {
   width: 100%;
 }
 
-/* HAMBURGER */
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #00ffff;
+}
+
+/* BUTTON */
+.cta {
+  padding: 15px 30px;
+  border: none;
+  background: #00ffff;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ffff;
+  transition: 0.3s;
+}
+
+.cta:hover {
+  transform: scale(1.1);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+  }
+}
+/* SERVICES SECTION */
+.services-section {
+  position: relative;
+  padding: 80px 20px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  background: #0d2c54;
+}
+
+/* 🔥 GRID BACKGROUND */
+.services-section::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 0;
+
+  background-image:
+    linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
+
+  background-size: 50px 50px;
+
+  animation: moveGrid 10s linear infinite;
+}
+
+/* GRID ANIMATION */
+@keyframes moveGrid {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-50px, -50px);
+  }
+}
+
+/* TITLE */
+.section-title {
+  font-size: 36px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+/* GRID */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* CARD */
+.service-card {
+  background: rgba(17, 47, 92, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+
+  transform: translateY(60px) scale(0.95);
+  opacity: 0;
+}
+
+/* IMAGE */
+.service-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* HOVER */
+.service-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  background: rgba(30, 90, 168, 0.9);
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+}
+
+/* TEXT */
+.service-card h3 {
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #ccc;
+}
+.service-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+/* zoom on hover */
+.service-card:hover .service-img {
+  transform: scale(1.15);
+}
+.service-card:active {
+  transform: scale(0.95);
+}
+/* STATS SECTION */
+.stats-section {
+  background: #081c3a;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.stat-box h2 {
+  font-size: 50px;
+  color: #00ffff;
+}
+
+.stat-box p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+/* TESTIMONIAL SECTION */
+.testimonial-section {
+  background: #0d2c54;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.testimonial-container {
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonial-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonial {
+  min-width: 100%;
+  padding: 20px;
+}
+
+.testimonial p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #00ffff;
+}
+
+.testimonial h4 {
+  font-size: 16px;
+  color: #ccc;
+}
+/* CLIENTS SECTION */
+.clients-section {
+  background: #081c3a;
+  padding: 70px 20px;
+  text-align: center;
+  color: white;
+}
+
+.clients-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+  align-items: center;
+}
+
+.client-logo {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.client-logo img {
+  width: 100%;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Hover effect */
+.client-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,255,255,0.3);
+}
+/* MOBILE RESPONSIVE IMPROVEMENTS */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .logo span {
+    font-size: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .cta {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .services-container {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .stat-box h2 {
+    font-size: 36px;
+  }
+
+  .testimonial p {
+    font-size: 16px;
+  }
+
+  .clients-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+
+  .nav-links a {
+    padding: 10px;
+    display: block;
+  }
+
+  .nav-links a:active {
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 5px;
+  }
+
+  .nav-links a:focus {
+    outline: none;
+    background: rgba(0, 255, 255, 0.2);
+  }
+}
+@media (hover: none) {
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+}
 .menu-toggle {
   display: none;
   font-size: 28px;
   cursor: pointer;
-  color: white;
-  z-index: 3;
 }
 
-/* MOBILE MENU */
+/* Mobile */
 @media (max-width: 768px) {
 
   .menu-toggle {
     display: block;
+    color: white;
   }
 
   .nav-links {
@@ -128,56 +450,17 @@ body {
     top: 70px;
     right: 0;
     background: #0d2c54;
-    width: 220px;
+    width: 200px;
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-
-    display: flex;
-    transform: translateX(100%);
-    transition: 0.3s ease;
+    display: none;
   }
 
   .nav-links.active {
-    transform: translateX(0);
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 10px;
+    display: flex;
   }
 }
-
-/* HERO */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero-content h1 {
-  font-size: 50px;
-}
-
-.hero-content p {
-  font-size: 20px;
-  color: #00ffff;
-  margin: 20px 0;
-}
-
-.cta {
-  padding: 15px 30px;
-  background: #00ffff;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 </style>
 </head>
 
@@ -185,18 +468,18 @@ body {
 
 <header class="main-header">
 
-  <video autoplay muted loop class="bg-video">
+  <!-- VIDEO -->
+  <video autoplay muted loop playsinline class="bg-video">
     <source src="vid.mp4" type="video/mp4">
   </video>
 
+  <!-- NAVBAR -->
   <div class="navbar">
     <div class="logo">
       <img src="logo.jpeg">
       <span>SSI ENGINEERING</span>
     </div>
-
-    <div class="menu-toggle">☰</div>
-
+<div class="menu-toggle">☰</div>
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="#">About Us</a></li>
@@ -206,6 +489,7 @@ body {
     </ul>
   </div>
 
+  <!-- HERO TEXT -->
   <div class="hero-content">
     <h1>Smart Industrial Automation</h1>
     <p>PLC | SCADA | HMI | Drives | IoT Solutions</p>
@@ -213,8 +497,179 @@ body {
   </div>
 
 </header>
+<section class="services-section">
 
+  <h2 class="section-title">Our Services</h2>
+
+  <div class="services-container">
+
+    <div class="service-card">
+      <img src="PLC_DEVELOPMENT.jpeg" class="service-img">
+      <h3>PLC Automation</h3>
+      <p>Advanced PLC programming for industrial automation systems.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="scada.jpg" class="service-img">
+      <h3>SCADA Development</h3>
+      <p>Real-time monitoring and control systems for industries.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="drive.jpg" class="service-img">
+      <h3>Drive Commissioning</h3>
+      <p>VFD setup, testing, and optimization for motors.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="panel.jpg" class="service-img">
+      <h3>Panel Design</h3>
+      <p>Electrical panel design, wiring, and installation.</p>
+    </div>
+
+  </div>
+
+</section>
+<section class="stats-section">
+
+  <div class="stats-container">
+
+    <div class="stat-box">
+      <h2 class="counter" data-target="60">0</h2>
+      <p>Projects Completed</p>
+    </div>
+
+    <div class="stat-box">
+      <h2 class="counter" data-target="100">0</h2>
+      <p>Happy Customers</p>
+    </div>
+
+  </div>
+
+</section>
+<section class="testimonial-section">
+
+  <h2 class="section-title">What Our Customers Say</h2>
+
+  <div class="testimonial-container">
+
+    <div class="testimonial-slider">
+
+      <div class="testimonial">
+        <p>"Excellent PLC automation service. Very professional team!"</p>
+        <h4>- Client A</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>"SCADA system delivered on time with great quality."</p>
+        <h4>- Client B</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>"Best support for drive commissioning and troubleshooting."</p>
+        <h4>- Client C</h4>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="clients-section">
+
+  <h2 class="section-title">Our Prestigious Clients</h2>
+
+  <div class="clients-container">
+
+    <div class="client-logo">
+      <img src="client1.png" alt="Client 1">
+    </div>
+
+    <div class="client-logo">
+      <img src="client2.png" alt="Client 2">
+    </div>
+
+    <div class="client-logo">
+      <img src="client3.png" alt="Client 3">
+    </div>
+
+    <div class="client-logo">
+      <img src="client4.png" alt="Client 4">
+    </div>
+
+    <div class="client-logo">
+      <img src="client5.png" alt="Client 5">
+    </div>
+
+  </div>
+
+</section>
+</body>
 <script>
+ const cards = document.querySelectorAll(".service-card");
+
+function revealCards() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  cards.forEach((card, index) => {
+    const cardTop = card.getBoundingClientRect().top;
+
+    if (cardTop < triggerBottom) {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0) scale(1)";
+      card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    }
+  });
+}
+
+window.addEventListener("scroll", revealCards);
+window.addEventListener("load", revealCards);
+const counters = document.querySelectorAll('.counter');
+
+const startCounter = () => {
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+
+      const increment = target / 100;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target + "+";
+      }
+    };
+
+    updateCount();
+  });
+};
+
+window.addEventListener("scroll", () => {
+  const section = document.querySelector('.stats-section');
+  const sectionTop = section.getBoundingClientRect().top;
+
+  if (sectionTop < window.innerHeight - 100) {
+    startCounter();
+  }
+});
+let index = 0;
+const slider = document.querySelector('.testimonial-slider');
+const totalSlides = document.querySelectorAll('.testimonial').length;
+
+function slideTestimonials() {
+  index++;
+
+  if (index >= totalSlides) {
+    index = 0;
+  }
+
+  slider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Auto slide every 2 seconds
+setInterval(slideTestimonials, 2000);
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 
@@ -222,6 +677,4 @@ toggle.addEventListener('click', () => {
   nav.classList.toggle('active');
 });
 </script>
-
-</body>
-</html>
+</html> 
