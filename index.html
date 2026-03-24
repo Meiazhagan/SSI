@@ -21,11 +21,16 @@ body {
 }
 
 /* HEADER */
-.main-header {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  color: white;
+.main-header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  z-index: 1;              /* ADD THIS */
+  pointer-events: none;    /* ADD THIS (KEY FIX) */
 }
 
 /* VIDEO BACKGROUND */
@@ -78,9 +83,14 @@ body {
 
 /* NAV LINKS */
 .nav-links {
-  display: flex;
-  list-style: none;
-  gap: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.nav-links.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-links a {
